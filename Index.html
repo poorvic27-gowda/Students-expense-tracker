@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Expense Tracker</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>💰 Student Expense Tracker</h1>
+
+<div class="income-section">
+
+<input
+type="number"
+id="income"
+placeholder="Monthly Income"
+oninput="saveIncome()">
+
+<input
+type="number"
+id="budget"
+placeholder="Monthly Budget"
+oninput="saveBudget()">
+
+</div>
+
+<div class="summary">
+
+<div class="card">
+<h3>Total Expense</h3>
+<p id="totalExpense">₹0</p>
+</div>
+
+<div class="card">
+<h3>Balance</h3>
+<p id="balance">₹0</p>
+</div>
+
+<div class="card">
+<h3>Budget Status</h3>
+<p id="budgetStatus">Within Budget</p>
+</div>
+
+</div>
+
+<div class="expense-form">
+
+<input
+type="text"
+id="expenseName"
+placeholder="Expense Name">
+
+<input
+type="number"
+id="expenseAmount"
+placeholder="Amount">
+
+<input
+type="date"
+id="expenseDate">
+
+<select id="expenseCategory">
+
+<option>Food</option>
+<option>Travel</option>
+<option>Shopping</option>
+<option>Education</option>
+<option>Medical</option>
+<option>Entertainment</option>
+<option>Other</option>
+
+</select>
+
+<button onclick="addExpense()">
+Add Expense
+</button>
+
+</div>
+
+<input
+type="text"
+id="search"
+placeholder="Search Expense"
+onkeyup="searchExpenses()">
+
+<div class="filters">
+
+<button onclick="filterExpenses('all')">
+All
+</button>
+
+<button onclick="filterExpenses('today')">
+Today
+</button>
+
+<button onclick="filterExpenses('week')">
+This Week
+</button>
+
+<button onclick="filterExpenses('month')">
+This Month
+</button>
+
+</div>
+
+<canvas id="expenseChart"></canvas>
+
+<ul id="expenseList"></ul>
+
+<div class="bottom-buttons">
+
+<button onclick="downloadPDF()">
+Download PDF
+</button>
+
+<button onclick="toggleTheme()">
+Dark Mode
+</button>
+
+<button onclick="clearExpenses()">
+Clear All
+</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
